@@ -55,7 +55,7 @@ fun main(args: Array<String>){
     val sueldoTotal = calcularSueldo(bono)
     println(sueldoTotal)
 
-    val adrian = Usuario("Adrian")
+    val adrian = Usuario("Adrian","Eguez", "Sarzosa")
     println(adrian)
 
 }
@@ -69,16 +69,33 @@ fun saludar(): Unit{
     println("Hola mundo")
 }
 
-class Usuario{
+class Usuario(public var nombre:String){ // 1er constructor
+    public var apellido: String? = null
+    public var apellidoMaterno: String? = null
+
+    constructor(vNombre:String,vApellido:String):this(vNombre){ // 2do
+        this.apellido = vApellido;
+    }
+
+    constructor(vNombre:String,vApellido:String,vApellidoMaterno: String):this(vNombre){ // 2do
+        this.apellido = vApellido
+        apellidoMaterno = vApellidoMaterno
+    }
+
+    /*
+
     public var nombre:String
 
     constructor(vNombre: String){
         this.nombre = vNombre
         nombre = vNombre
     }
+    */
 
     override fun toString(): String{
-        return "Hola ${this.nombre}"
+        val apellidoMayusculas = if(!apellido.isNullOrBlank()) this.apellido?.toUpperCase() else ""
+        val apellidoMaternoMayusculas = if(!apellidoMaterno.isNullOrBlank()) this.apellidoMaterno?.toUpperCase() else ""
+        return "Hola $nombre $apellidoMayusculas $apellidoMaternoMayusculas"
     }
 }
 
