@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     fun irAPantallaDeBotones() {
         // INTENT
         val intentIrABotones = Intent(this, ButtonActivity::class.java)
+        intentIrABotones.putExtra("nombre","Adrian")
+        intentIrABotones.putExtra("apellido","Eguez")
         this.startActivity(intentIrABotones)
     }
 
