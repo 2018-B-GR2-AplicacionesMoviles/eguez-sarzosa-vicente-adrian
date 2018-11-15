@@ -19,4 +19,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_result_propio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Obtener Nombre Apellido"
+        app:layout_constraintBottom_toTopOf="@+id/button_enviar_intent_respuesta"
+        app:layout_constraintEnd_toEndOf="@+id/button_enviar_intent_respuesta"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="@+id/button_enviar_intent_respuesta" />
 </android.support.constraint.ConstraintLayout>

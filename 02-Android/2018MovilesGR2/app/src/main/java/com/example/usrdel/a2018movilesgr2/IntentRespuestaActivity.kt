@@ -23,6 +23,15 @@ class IntentRespuestaActivity : AppCompatActivity() {
                     this.enviarIntentRespuesta()
                 }
 
+        button_result_propio
+                .setOnClickListener {
+                    this.enviarIntentRespuestaPropio()
+                }
+    }
+
+    fun enviarIntentRespuestaPropio() {
+        val intentRespuestaNombreApellido = Intent(this, ResultadoPropioActivity::class.java);
+        this.startActivityForResult(intentRespuestaNombreApellido, requestCodeNombreApellido)
 
     }
 
@@ -75,6 +84,19 @@ class IntentRespuestaActivity : AppCompatActivity() {
 
 
             }
+            requestCodeNombreApellido -> {
+                when (resultCode) {
+                    RESULT_OK -> {
+                        Log.i("intent-nombre-apellido", "LLEGOOOO ${data!!.getStringExtra("nombre")}")
+                        Log.i("intent-nombre-apellido", "LLEGOOOO ${data!!.getStringExtra("apellido")}
+                    }
+                    RESULT_CANCELED -> {
+                        Log.i("contactos", "No se selecciono ningun contacto")
+                    }
+                }
+                ")
+
+            }
             else -> {
                 Log.e("indefinido", "indefinido")
             }
@@ -85,6 +107,7 @@ class IntentRespuestaActivity : AppCompatActivity() {
 
     companion object {
         val requestCodeContactos = 101
+        val requestCodeNombreApellido = 102
     }
 }
 
