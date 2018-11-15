@@ -88,14 +88,12 @@ class IntentRespuestaActivity : AppCompatActivity() {
                 when (resultCode) {
                     RESULT_OK -> {
                         Log.i("intent-nombre-apellido", "LLEGOOOO ${data!!.getStringExtra("nombre")}")
-                        Log.i("intent-nombre-apellido", "LLEGOOOO ${data!!.getStringExtra("apellido")}
+                        Log.i("intent-nombre-apellido", "LLEGOOOO ${data!!.getStringExtra("apellido")}")
                     }
                     RESULT_CANCELED -> {
                         Log.i("contactos", "No se selecciono ningun contacto")
                     }
                 }
-                ")
-
             }
             else -> {
                 Log.e("indefinido", "indefinido")
