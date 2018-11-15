@@ -15,10 +15,15 @@ class IntentRespuestaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_respuesta)
 
+        val texto: String? = intent.getStringExtra(Intent.EXTRA_TEXT)
+        Log.i("intent-texto", "Texto: ${texto}")
+
         button_enviar_intent_respuesta
                 .setOnClickListener {
                     this.enviarIntentRespuesta()
                 }
+
+
     }
 
     fun enviarIntentRespuesta() {
@@ -42,18 +47,22 @@ class IntentRespuestaActivity : AppCompatActivity() {
 
                             var numeroTelefono: String? = null
                             var nombre: String? = null
+                            var tieneNumeroTelefono: String? = null
                             val uri = data?.data
-                            cursor = contentResolver.query(uri, null, null, null, null)
 
+                            cursor = contentResolver.query(uri, null, null, null, null)
                             cursor!!.moveToFirst()
 
                             val indiceTelefono = cursor!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
                             val indiceNombre = cursor!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+                            val indiceTieneNumeroTelefono = cursor!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.HAS_PHONE_NUMBER)
 
                             numeroTelefono = cursor!!.getString(indiceTelefono)
                             nombre = cursor!!.getString(indiceNombre)
+                            tieneNumeroTelefono = cursor!!.getString(indiceTieneNumeroTelefono)
 
                             Log.i("contactos", "Telefono: ${numeroTelefono} - Nombre: ${nombre}")
+                            Log.i("contactos", "Tiene numero de telefono ${tieneNumeroTelefono}")
 
                         } catch (e: Exception) {
                             Log.i("contactos", "Error")
