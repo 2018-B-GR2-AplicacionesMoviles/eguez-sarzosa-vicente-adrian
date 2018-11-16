@@ -27,6 +27,19 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irAPantallaDeIntentRespuesta()
                 }
+
+        button_ciclo_vida
+                .setOnClickListener {
+                    this.irAPantallaCicloVida()
+                }
+    }
+
+    fun irAPantallaCicloVida() {
+        val intentCicloVida = Intent(
+                this,
+                CicloVidaActivity::class.java
+        )
+        this.startActivity(intentCicloVida)
     }
 
     fun irAPantallaDeBotones() {

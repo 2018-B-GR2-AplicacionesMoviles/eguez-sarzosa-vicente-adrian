@@ -94,6 +94,7 @@ class IntentRespuestaActivity : AppCompatActivity() {
                         Log.i("contactos", "No se selecciono ningun contacto")
                     }
                 }
+
             }
             else -> {
                 Log.e("indefinido", "indefinido")

@@ -94,4 +94,16 @@
         app:layout_constraintTop_toTopOf="@+id/boton_navegar"
         app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/button_ciclo_vida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="C. Vida"
+        app:layout_constraintBottom_toBottomOf="@+id/boton_navegar"
+        app:layout_constraintStart_toEndOf="@+id/boton_navegar"
+        app:layout_constraintTop_toTopOf="@+id/boton_navegar"
+        app:layout_constraintVertical_bias="1.0" />
+
 </android.support.constraint.ConstraintLayout>

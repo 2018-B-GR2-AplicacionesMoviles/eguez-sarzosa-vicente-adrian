@@ -26,7 +26,8 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultadoPropioActivity"></activity>
+        <activity android:name=".ResultadoPropioActivity" />
+        <activity android:name=".CicloVidaActivity"></activity>
     </application>
 
 </manifest>
