@@ -15,22 +15,27 @@ class CicloVidaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_ciclo_vida)
         Log.i("ciclo-vida", "On Create")
 
-        val contadorGuardado = savedInstanceState?.get(SAVE_INSTANCE_STATE_CONTADOR) as Int?
-
-        if(contadorGuardado != null){
-            contador = contadorGuardado
-        }
 
         button_contador
                 .setOnClickListener {
                     // algo  -> Aumentar contador
-                    this.aumentarContador()
+                    this.aumentarContador(1)
                 }
 
     }
 
-    fun aumentarContador() {
-        contador = contador + 1
+    fun revisarSiTieneUnEstadoGuardado(savedInstanceState: Bundle) {
+        val contadorGuardado = savedInstanceState
+                .get(SAVE_INSTANCE_STATE_CONTADOR) as Int?
+
+        if (contadorGuardado != null) {
+            contador = contadorGuardado
+            this.aumentarContador(0)
+        }
+    }
+
+    fun aumentarContador(suma: Int) {
+        contador = contador + suma
         text_view_contador.text = contador.toString()
     }
 
@@ -74,6 +79,12 @@ class CicloVidaActivity : AppCompatActivity() {
         }
 
         super.onSaveInstanceState(outState)
+
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        this.revisarSiTieneUnEstadoGuardado(savedInstanceState)
 
     }
 
