@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,25 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irAPantallaCicloVida()
                 }
+
+        button_intent_respuesta
+                .setOnClickListener {
+                    this.irActividadIntent()
+                }
+    }
+
+    fun irActividadIntent() {
+        val intentActividadIntent = Intent(
+                this,
+                IntentRespuestaActivity::class.java
+        )
+
+        val adrian = Usuario(
+                "Adrian",
+                29,
+                Date(1989, 6, 10),
+                12.00)
+
     }
 
     fun irAPantallaCicloVida() {
