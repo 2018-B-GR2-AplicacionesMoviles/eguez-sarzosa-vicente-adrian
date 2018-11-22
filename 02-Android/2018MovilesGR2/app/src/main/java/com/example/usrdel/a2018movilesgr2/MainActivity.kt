@@ -34,16 +34,29 @@ class MainActivity : AppCompatActivity() {
                     this.irAPantallaCicloVida()
                 }
 
-        button_intent_respuesta
+        button_intent_parcelable
                 .setOnClickListener {
-                    this.irActividadIntent()
+                    this.irActividadParcelableIntent()
+                }
+
+        button_adaptador
+                .setOnClickListener {
+                    this.irActividadAdaptador()
                 }
     }
 
-    fun irActividadIntent() {
+    fun irActividadAdaptador() {
+        val intentAdaptador = Intent(
+                this,
+                AdaptadorActivity::class.java
+        )
+        startActivity(intentAdaptador)
+    }
+
+    fun irActividadParcelableIntent() {
         val intentActividadIntent = Intent(
                 this,
-                IntentRespuestaActivity::class.java
+                ParcelableActivity::class.java
         )
 
         val adrian = Usuario(
@@ -51,6 +64,14 @@ class MainActivity : AppCompatActivity() {
                 29,
                 Date(1989, 6, 10),
                 12.00)
+
+        val cachetes = Mascota("Cachetes", adrian)
+
+        intentActividadIntent.putExtra("usuario", adrian)
+        intentActividadIntent.putExtra("mascota", cachetes)
+
+        startActivity(intentActividadIntent)
+
 
     }
 
