@@ -43,6 +43,19 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irActividadAdaptador()
                 }
+
+        button_recycler_view
+                .setOnClickListener {
+                    this.irActividadRecyclerView()
+                }
+    }
+
+    fun irActividadRecyclerView() {
+        val intent = Intent(
+                this,
+                ReciclerViewActivity::class.java
+        )
+        startActivity(intent)
     }
 
     fun irActividadAdaptador() {
