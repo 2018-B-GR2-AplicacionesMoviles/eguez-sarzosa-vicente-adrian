@@ -7,26 +7,34 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_primer.*
 
 
 class PrimerFragment : Fragment() {
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        Log.i("fragmentos", "On Attach")
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        if (arguments != null) {
-            print(arguments!!.getString("nombre"))
-        }
-
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(
                 R.layout.fragment_primer, // XML A USARSE
                 container,
                 false
         )
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        if (arguments != null) {
+
+            Log.i("fragmentos", arguments!!.getString("nombre"))
+
+            text_view_primer_fragmento
+                    .text = arguments!!.getString("nombre")
+
+        }
+
+
     }
 
 }
