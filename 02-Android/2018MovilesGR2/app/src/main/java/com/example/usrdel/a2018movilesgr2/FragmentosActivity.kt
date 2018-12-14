@@ -10,19 +10,27 @@ class FragmentosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fragmentos)
 
         // Manager
-        // val fragmentManager = supportFragmentManager
+        val fragmentManager = supportFragmentManager
 
         // Transacciones
-        // val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
 
         // Crear instancia de fragmento
-        // val primerFragmento = PrimerFragment()
+        val primerFragmento = PrimerFragment()
+
+        val argumentos = Bundle()
+
+        argumentos.putString("nombre", "Adrian Eguez")
+        argumentos.putInt("edad", 29)
+
+        primerFragmento.arguments = argumentos
 
         // Anadir fragmento
-        // fragmentTransaction.add(R.id.fragment_primer, primerFragmento)
+
+        fragmentTransaction.replace(R.id.fragment_primer, primerFragmento)
 
         // Commit
-        // fragmentTransaction.commit()
+        fragmentTransaction.commit()
 
 
         /*

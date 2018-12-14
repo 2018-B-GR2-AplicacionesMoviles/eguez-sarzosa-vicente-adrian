@@ -13,10 +13,15 @@ class PrimerFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        Log.i("fragmentos","On Attach")
+        Log.i("fragmentos", "On Attach")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        if (arguments != null) {
+            print(arguments!!.getString("nombre"))
+        }
+
         return inflater!!.inflate(
                 R.layout.fragment_primer, // XML A USARSE
                 container,
