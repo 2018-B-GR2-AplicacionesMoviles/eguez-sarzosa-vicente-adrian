@@ -76,6 +76,31 @@ class SqliteHelper(context: Context) :
 
     }
 
+    fun actualizarUsuarioFormulario(nombre: String,
+                               descripcion: String): Boolean {
+        // Base de datos de escritura
+        val dbWriteable = writableDatabase
+        val cv = ContentValues()
+
+        // Valores de los campos
+        cv.put("nombre", nombre)
+        cv.put("descripcion", descripcion)
+
+        val argumentos = { "String1"}
+        val resultado = dbWriteable
+                .update(
+                        "usuario", // Nombre de la tabla
+                        cv
+                        // "id = 1",
+                        // ({"1"})
+                )
+
+        dbWriteable.close()
+
+        return if (resultado.toInt() == -1) false else true
+
+    }
+
 
     /*
     override fun onCreate(db: SQLiteDatabase?) {
