@@ -12,14 +12,20 @@ class FragmentosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragmentos)
-
         fragmentoActual = PrimerFragment()
 
+        crearFragmentoUno()
 
         button_crear_primer_fragmento
                 .setOnClickListener {
                     crearFragmentoUno()
                 }
+
+        button_crear_segundo_fragmento
+                .setOnClickListener {
+                    crearFragmentoDos()
+                }
+
 
         /*
         boton_tab1.setOnClickListener { view ->
@@ -38,6 +44,10 @@ class FragmentosActivity : AppCompatActivity() {
     }
 
     fun crearFragmentoUno() {
+
+        destruirFragmentoActual()
+
+
         // Manager
         val fragmentManager = supportFragmentManager
 
@@ -56,13 +66,49 @@ class FragmentosActivity : AppCompatActivity() {
 
         // Anadir fragmento
 
-        fragmentTransaction.remove(fragmentoActual)
-        // fragmentTransaction.replace(R.id.fragment_primer, primerFragmento)
+        // fragmentTransaction.remove(fragmentoActual)
+        fragmentTransaction.replace(R.id.relative_layout_fragmentos, primerFragmento)
 
         fragmentoActual = primerFragmento
 
 
         // Commit
+        fragmentTransaction.commit()
+    }
+
+    fun crearFragmentoDos() {
+
+        destruirFragmentoActual()
+        // Manager
+        val fragmentManager = supportFragmentManager
+
+        // Transacciones
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        // Crear instancia de fragmento
+        val segundoFragmento = SegundoFragment()
+
+        val argumentos = Bundle()
+
+        segundoFragmento.arguments = argumentos
+
+        // Anadir fragmento
+
+        //fragmentTransaction.remove(fragmentoActual)
+        fragmentTransaction.replace(R.id.relative_layout_fragmentos, segundoFragmento)
+
+        fragmentoActual = segundoFragmento
+
+
+        // Commit
+        fragmentTransaction.commit()
+    }
+
+    fun destruirFragmentoActual() {
+        val fragmentManager = supportFragmentManager
+        // Transacciones
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.remove(fragmentoActual)
         fragmentTransaction.commit()
     }
 
