@@ -12,7 +12,7 @@ class SegundoFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(
-                R.layout.fragment_segundo, // XML A USARSE
+                R.layout.tercer_fragmento, // XML A USARSE
                 container,
                 false
         )

@@ -77,29 +77,18 @@ class FragmentosActivity : AppCompatActivity() {
     }
 
     fun crearFragmentoDos() {
-
         destruirFragmentoActual()
         // Manager
         val fragmentManager = supportFragmentManager
-
         // Transacciones
         val fragmentTransaction = fragmentManager.beginTransaction()
-
         // Crear instancia de fragmento
         val segundoFragmento = SegundoFragment()
-
         val argumentos = Bundle()
-
         segundoFragmento.arguments = argumentos
-
         // Anadir fragmento
-
-        //fragmentTransaction.remove(fragmentoActual)
         fragmentTransaction.replace(R.id.relative_layout_fragmentos, segundoFragmento)
-
         fragmentoActual = segundoFragmento
-
-
         // Commit
         fragmentTransaction.commit()
     }
@@ -111,6 +100,10 @@ class FragmentosActivity : AppCompatActivity() {
         fragmentTransaction.remove(fragmentoActual)
         fragmentTransaction.commit()
     }
+
+
+
+
 
     /*
     fun destruirFragmentoActual() {

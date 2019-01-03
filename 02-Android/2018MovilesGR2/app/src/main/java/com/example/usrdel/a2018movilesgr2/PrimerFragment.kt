@@ -24,9 +24,6 @@ class PrimerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
-
         if (arguments != null) {
 
             Log.i("fragmentos", arguments!!.getString("nombre"))
@@ -35,8 +32,6 @@ class PrimerFragment : Fragment() {
                     .text = arguments!!.getString("nombre")
 
         }
-
-
     }
 
 }
