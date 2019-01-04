@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
 
-class SqliteHelper(context: Context) :
-        SQLiteOpenHelper(context,
+class SqliteHelper() :
+        SQLiteOpenHelper(null,
                 "moviles", // Nombre de la base de datos
                 null,
                 1) {
@@ -32,26 +32,28 @@ class SqliteHelper(context: Context) :
 
     }
 
-    fun existeUsuarioFormulario(): Boolean {
+    fun existeUsuarioFormulario(): RespuestaUsuarioGuardado {
 
         val statement = "select * from usuario where id=1;"
 
         val dbReadable = readableDatabase
 
-        val resultado = dbReadable.rawQuery(statement,
-                null)
+        val resultado = dbReadable.rawQuery(statement, null)
 
-        var existeUsuario = 0
+        val respuestaUsuario = RespuestaUsuarioGuardado(null, null)
 
         if (resultado.moveToFirst()) {
             do {
-                existeUsuario++
+                respuestaUsuario.nombre = resultado.getString(0)
+                respuestaUsuario.descripcion = resultado.getString(1)
             } while (resultado.moveToNext())
         }
+
         resultado.close()
+
         dbReadable.close()
 
-        return if (existeUsuario == 0) false else true
+        return respuestaUsuario
     }
 
     fun crearUsuarioFormulario(nombre: String,
@@ -77,22 +79,22 @@ class SqliteHelper(context: Context) :
     }
 
     fun actualizarUsuarioFormulario(nombre: String,
-                               descripcion: String): Boolean {
+                                    descripcion: String): Boolean {
         // Base de datos de escritura
         val dbWriteable = writableDatabase
         val cv = ContentValues()
 
         // Valores de los campos
+
         cv.put("nombre", nombre)
         cv.put("descripcion", descripcion)
 
-        val argumentos = { "String1"}
         val resultado = dbWriteable
                 .update(
                         "usuario", // Nombre de la tabla
-                        cv
-                        // "id = 1",
-                        // ({"1"})
+                        cv, // Valores a actualizarse
+                        "id=?", // Where
+                        arrayOf("1") // Parametros
                 )
 
         dbWriteable.close()
