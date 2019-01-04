@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
 
-class SqliteHelper(context:Context?) :
+class SqliteHelper(context: Context?) :
         SQLiteOpenHelper(context,
                 "moviles", // Nombre de la base de datos
                 null,
@@ -101,6 +101,20 @@ class SqliteHelper(context:Context?) :
 
         return if (resultado.toInt() == -1) false else true
 
+    }
+
+    fun eliminarUsuarioFormulario(): Boolean {
+        val dbWriteable = writableDatabase
+
+        val nombreTabla = "usuario"
+        val clausulaWhere = "id = ?"
+        val parametros = arrayOf("1")
+        val respuesta = dbWriteable.delete(
+                nombreTabla,
+                clausulaWhere,
+                parametros
+        )
+        return if (respuesta == -1) false else true
     }
 
 
