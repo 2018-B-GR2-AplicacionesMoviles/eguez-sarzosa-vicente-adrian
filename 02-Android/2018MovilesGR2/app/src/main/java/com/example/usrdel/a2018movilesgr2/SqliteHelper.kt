@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
 
-class SqliteHelper() :
-        SQLiteOpenHelper(null,
+class SqliteHelper(context:Context?) :
+        SQLiteOpenHelper(context,
                 "moviles", // Nombre de la base de datos
                 null,
                 1) {
@@ -20,7 +20,7 @@ class SqliteHelper() :
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nombre VARCHAR(50)," +
-                "descripcion VARCHAR(50)," +
+                "descripcion VARCHAR(50)" +
                 ")"
         Log.i("bdd", "Creando la tabla de usuario \n$crearTablaUsuario")
         baseDeDatos?.execSQL(crearTablaUsuario)
@@ -44,8 +44,8 @@ class SqliteHelper() :
 
         if (resultado.moveToFirst()) {
             do {
-                respuestaUsuario.nombre = resultado.getString(0)
-                respuestaUsuario.descripcion = resultado.getString(1)
+                respuestaUsuario.nombre = resultado.getString(1)
+                respuestaUsuario.descripcion = resultado.getString(2)
             } while (resultado.moveToNext())
         }
 

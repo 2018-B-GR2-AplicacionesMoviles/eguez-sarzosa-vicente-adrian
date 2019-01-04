@@ -3,6 +3,7 @@ package com.example.usrdel.a2018movilesgr2
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_fragmentos.*
 
 class FragmentosActivity : AppCompatActivity() {
@@ -12,6 +13,8 @@ class FragmentosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragmentos)
+
+
         fragmentoActual = PrimerFragment()
 
         crearFragmentoUno()
@@ -100,9 +103,6 @@ class FragmentosActivity : AppCompatActivity() {
         fragmentTransaction.remove(fragmentoActual)
         fragmentTransaction.commit()
     }
-
-
-
 
 
     /*
