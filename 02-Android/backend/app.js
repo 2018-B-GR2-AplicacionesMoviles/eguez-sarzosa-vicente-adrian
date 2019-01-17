@@ -52,3 +52,21 @@ try {
 
 // Start server
 sails.lift(rc('sails'));
+
+
+// SQL
+//
+// ??
+// NO HAY RELACION
+// Mongo -> TABLAS -> Documentos
+// NO TIENEN LIMITE DE CAMPOS
+// Nombre, Apellido
+// Nombre, correo
+// Redis
+
+
+
+
+
+
+
