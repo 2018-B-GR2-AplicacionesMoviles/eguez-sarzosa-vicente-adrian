@@ -40,7 +40,6 @@ class Menu2Activity : AppCompatActivity() {
         registerForContextMenu(list_view_context_menu)
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.options_menu, menu)
@@ -78,8 +77,6 @@ class Menu2Activity : AppCompatActivity() {
 
         val inflater = menuInflater
         inflater.inflate(R.menu.options_menu, menu)
-
-
     }
 
 
