@@ -3,8 +3,10 @@ package com.example.usrdel.a2018movilesgr2
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import com.example.usrdel.a2018movilesgr2.R.styleable.Snackbar
 
@@ -67,6 +69,19 @@ class Menu2Activity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
+    override fun onCreateContextMenu(
+            menu: ContextMenu,
+            v: View,
+            menuInfo: ContextMenu.ContextMenuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+
+
+    }
+
 
 }
 
