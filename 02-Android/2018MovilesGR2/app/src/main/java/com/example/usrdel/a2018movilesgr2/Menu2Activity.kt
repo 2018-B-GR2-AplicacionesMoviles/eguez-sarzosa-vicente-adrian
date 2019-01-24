@@ -31,3 +31,16 @@ class Menu2Activity : AppCompatActivity() {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

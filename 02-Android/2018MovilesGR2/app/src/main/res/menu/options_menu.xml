@@ -4,7 +4,8 @@
 
     <item
         android:id="@+id/item_menu_saludo"
-        android:title="Hola"
+        android:title="@string/textoPrincipal"
+        android:icon="@drawable/icono"
         app:showAsAction="always" />
 
 </menu>
