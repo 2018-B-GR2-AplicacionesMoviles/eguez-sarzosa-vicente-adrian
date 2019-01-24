@@ -2,13 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.usrdel.a2018movilesgr2">
 
-
-
-
-
     <uses-permission android:name="android.permission.INTERNET" />
-
-
 
     <application
         android:allowBackup="true"
@@ -40,7 +34,11 @@
         <activity android:name=".AdaptadorActivity" />
         <activity android:name=".ReciclerViewActivity" />
         <activity android:name=".FragmentosActivity" />
-        <activity android:name=".HttpActivity"></activity>
+        <activity android:name=".HttpActivity" />
+        <activity
+            android:name=".Menu2Activity"
+            android:label="@string/title_activity_menu2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
