@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_menu_saludo"
+        android:title="@string/textoPrincipal"
+        android:icon="@drawable/icono"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_menu_dos"
+        android:title="DOS"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/item_menu_tres"
+        android:title="TRES"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/subir_archivos"
+        android:title="Cuarto" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/nuevo"
+                android:title="Nuevo Archivo" />
+            <item android:id="@+id/abrir"
+                android:title="Abrir Archivo" />
+            <item android:id="@+id/editar"
+                android:title="Editar Archivo" />
+            <item android:id="@+id/eliminar"
+                android:title="Eliminar Archivo" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/item_menu_cuatro"
+        android:title="CUATRO"
+        app:showAsAction="always">
+
+        <menu>
+            <item android:id="@+id/nuevo_pokemon"
+                android:title="Nuevo Pokemon" />
+            <item android:id="@+id/abrir_pokemon"
+                android:title="Abrir Pokemon" />
+            <item android:id="@+id/editar_pokemon"
+                android:title="Editar Pokemon" />
+            <item android:id="@+id/eliminar_pokemon"
+                android:icon="@drawable/icono"
+                android:title="Eliminar Pokemon" />
+        </menu>
+
+    </item>
+
+</menu>

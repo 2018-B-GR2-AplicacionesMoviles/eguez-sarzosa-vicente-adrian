@@ -52,6 +52,32 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irActividadFragmentos()
                 }
+        button_http
+                .setOnClickListener {
+                    this.irActividadHttp()
+                }
+
+        button_menu
+                .setOnClickListener {
+                    this.irActividadMenu()
+                }
+    }
+
+    fun irActividadMenu(){
+        val intent = Intent(
+                this,
+                Menu2Activity::class.java
+        )
+        startActivity(intent)
+    }
+
+
+    fun irActividadHttp(){
+        val intent = Intent(
+                this,
+                HttpActivity::class.java
+        )
+        startActivity(intent)
     }
 
     fun irActividadFragmentos() {
