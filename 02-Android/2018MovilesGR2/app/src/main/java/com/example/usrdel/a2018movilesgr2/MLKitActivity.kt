@@ -10,6 +10,10 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
+import android.util.Log
+import android.widget.ArrayAdapter
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.activity_mlkit.*
 import java.io.File
 import java.text.SimpleDateFormat
@@ -106,6 +110,42 @@ class MLKitActivity : AppCompatActivity() {
                 .decodeFile(
                         archivoImagen.getAbsolutePath()
                 )
+    }
+
+
+    fun obtenerInfoCodigoBarras(bitmap: Bitmap) {
+        val image = FirebaseVisionImage.fromBitmap(bitmap)
+        val detector = FirebaseVision.getInstance()
+                .visionBarcodeDetector
+        Log.i("info", "------- Entro a detectar")
+        val result = detector.detectInImage(image)
+                .addOnSuccessListener { barCodes ->
+                    Log.i("info", "------- tamano del barcode ${barCodes.size}")
+                    respuestasBarCode.add("Ejemplo")
+                    for (barcode in barCodes) {
+                        val bounds = barcode.getBoundingBox()
+                        val corners = barcode.getCornerPoints()
+
+                        val rawValue = barcode.getRawValue()
+
+                        Log.i("info", "------- $bounds")
+                        Log.i("info", "------- $corners")
+                        Log.i("info", "------- $rawValue")
+
+                        respuestasBarCode.add(rawValue.toString())
+                    }
+
+                    val adaptadorListView = ArrayAdapter<String>(
+                            this,
+                            android.R.layout.simple_list_item_1,
+                            respuestasBarCode
+                    )
+
+                    list_view_codigo_barras.adapter = adaptadorListView
+                }
+                .addOnFailureListener {
+                    Log.i("info", "------- No reconocio nada")
+                }
     }
 
 
