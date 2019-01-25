@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "884515771695",
+    "firebase_url": "https://b-moviles-gr2.firebaseio.com",
+    "project_id": "b-moviles-gr2",
+    "storage_bucket": "b-moviles-gr2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884515771695:android:ea9b2ac5b46aa7e5",
+        "android_client_info": {
+          "package_name": "com.example.usrdel.a2018movilesgr2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884515771695-g005llvb2c0477p821jrt78s64l7q2kh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB60IafuyEqGtmSe_Tj136aNvbPCx8UzT0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
