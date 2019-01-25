@@ -61,9 +61,22 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irActividadMenu()
                 }
+
+        button_ml_kit
+                .setOnClickListener {
+                    this.irActividadMLKit()
+                }
     }
 
-    fun irActividadMenu(){
+    fun irActividadMLKit() {
+        val intent = Intent(
+                this,
+                MLKitActivity::class.java
+        )
+        startActivity(intent)
+    }
+
+    fun irActividadMenu() {
         val intent = Intent(
                 this,
                 Menu2Activity::class.java
@@ -72,7 +85,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun irActividadHttp(){
+    fun irActividadHttp() {
         val intent = Intent(
                 this,
                 HttpActivity::class.java
