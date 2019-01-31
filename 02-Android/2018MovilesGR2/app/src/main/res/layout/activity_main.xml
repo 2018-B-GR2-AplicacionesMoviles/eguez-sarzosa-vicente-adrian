@@ -125,7 +125,7 @@
         android:layout_marginTop="80dp"
         android:text="Adaptadores"
         app:layout_constraintEnd_toEndOf="@+id/button_ciclo_vida"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="@+id/button_ciclo_vida"
         app:layout_constraintTop_toBottomOf="@+id/button_ciclo_vida" />
 
@@ -162,7 +162,7 @@
         android:layout_marginTop="24dp"
         android:text="HTTP"
         app:layout_constraintEnd_toEndOf="@+id/button_adaptador"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/button_adaptador"
         app:layout_constraintTop_toBottomOf="@+id/button_adaptador" />
 
@@ -171,10 +171,10 @@
         android:layout_width="80dp"
         android:layout_height="41dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:text="Menu"
         app:layout_constraintEnd_toEndOf="@+id/button_http"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_http"
         app:layout_constraintTop_toBottomOf="@+id/button_http" />
 
@@ -190,5 +190,42 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/button_fragmento"
         app:layout_constraintTop_toBottomOf="@+id/button_fragmento" />
+
+    <Button
+        android:id="@+id/button_alertas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Alertas"
+        app:layout_constraintEnd_toEndOf="@+id/button_intent_parcelable"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="@+id/button_intent_parcelable"
+        app:layout_constraintTop_toBottomOf="@+id/button_intent_parcelable" />
+
+    <Button
+        android:id="@+id/button_dialogo_confirmacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="Dialogo C"
+        app:layout_constraintEnd_toEndOf="@+id/button_alertas"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button_alertas"
+        app:layout_constraintTop_toBottomOf="@+id/button_alertas" />
+
+    <Button
+        android:id="@+id/button_dialogo_opciones"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Dialogo O"
+        app:layout_constraintEnd_toEndOf="@+id/button_dialogo_confirmacion"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="@+id/button_dialogo_confirmacion"
+        app:layout_constraintTop_toBottomOf="@+id/button_dialogo_confirmacion" />
 
 </android.support.constraint.ConstraintLayout>

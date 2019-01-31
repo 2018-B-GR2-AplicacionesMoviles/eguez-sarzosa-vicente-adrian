@@ -1,9 +1,14 @@
 package com.example.usrdel.a2018movilesgr2
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.util.Log
+import android.view.View
+import android.widget.Toast
+import com.tapadoo.alerter.Alerter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -12,6 +17,90 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
+        button_dialogo_confirmacion
+                .setOnClickListener {
+                    val builder = AlertDialog.Builder(this)
+
+
+                    builder
+                            .setMessage("Estas seguro de pasar la materia?")
+                            .setPositiveButton(
+                                    "Si, de una",
+                                    DialogInterface
+                                            .OnClickListener { dialog, which ->
+                                                Alerter.create(this@MainActivity)
+                                                        .setText("El usuario selecciono que SI")
+                                                        .show()
+                                            }
+                            )
+                            .setNegativeButton(
+                                    "No, vamos bielas",
+                                    { dialog, which ->
+                                        Alerter.create(this@MainActivity)
+                                                .setText("El usuario selecciono que NO")
+                                                .show()
+                                    }
+                            )
+
+
+                    val dialogo = builder.create()
+                    dialogo.show()
+
+
+                    /* DialogInterface.OnClickListener { dialog, which ->
+                   Log.i(
+                           "a",
+                           "si")
+               }
+               */
+                }
+
+        button_dialogo_opciones
+                .setOnClickListener {
+                    val builder = AlertDialog.Builder(this)
+
+
+                    val listaItems = resources.getStringArray(R.array.dias_de_la_semana)
+
+                    //(arrayOf("1", "2", "3"),
+
+                    builder.setTitle("Dia favorito de la semana")
+                            .setSingleChoiceItems(
+                                    listaItems,
+                                    1,
+                                    null)
+                            .setNeutralButton(
+                                    "Cancel",
+                                    null
+                            )
+
+                    val dialogo = builder.create()
+                    dialogo.show()
+
+                }
+
+
+        button_alertas
+                .setOnClickListener {
+
+                    Alerter.create(this@MainActivity)
+                            .setTitle("Alert Title")
+                            .setText("Alert text...")
+                            .setOnClickListener(View.OnClickListener {
+                                Toast.makeText(
+                                        this@MainActivity,
+                                        "OnClick Called",
+                                        Toast.LENGTH_LONG)
+                                        .show();
+                            })
+                            .show()
+
+                }
+
 
         boton_navegar
                 .setOnClickListener {

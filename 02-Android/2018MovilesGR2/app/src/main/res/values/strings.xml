@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Moviles :) </string>
 
+    <string-array name="dias_de_la_semana">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+    </string-array>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_menu2">Menu2Activity</string>
