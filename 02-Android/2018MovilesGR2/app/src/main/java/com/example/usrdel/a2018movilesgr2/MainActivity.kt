@@ -155,6 +155,19 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
                     this.irActividadMLKit()
                 }
+
+        button_google_maps
+                .setOnClickListener {
+                    this.irAActividadGoogleMaps()
+                }
+    }
+
+    fun irAActividadGoogleMaps() {
+        val intent = Intent(
+                this,
+                MapaContenedorActivity::class.java
+        )
+        startActivity(intent)
     }
 
     fun irActividadMLKit() {
